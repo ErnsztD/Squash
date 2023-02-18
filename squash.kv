@@ -1,0 +1,49 @@
+#:kivy 2.1.0
+
+<Ball>:
+    size: 20, 20
+    canvas:
+        Color:
+            rgb: self.color
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+
+
+<Player>
+    size: 100, 25
+    canvas:
+        Color:
+            rgb: self.color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SquashGame>:
+
+    ball: ball
+    player1: player_left
+    player2: player_right
+
+
+    canvas:
+        Rectangle:
+            pos: self.center_x-5, 0
+            size: 10, self.height/3
+
+
+    Ball:
+        id: ball
+        center: self.parent.center
+
+
+    Player:
+        id: player_left
+        x: root.width / 4 - 50
+        center_y: root.y + 15
+
+    Player:
+        id: player_right
+        x: (root.width / 4) * 3 - 50
+        center_y: root.y + 15
